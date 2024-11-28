@@ -1,0 +1,14 @@
+<h1 class="mb-4">Danh sách bài viết</h1>
+<div class="row">
+  {{#each posts}}
+  <div class="col-md-4 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <a href="/posts/{{this._id}}" class="btn btn-primary">Xem chi tiết</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <!-- Header với tiêu đề bài viết -->
+        <div class="card-header bg-primary text-white">
+            <h1 class="card-title">{{title}}</h1>
+        </div>
+        
+        <!-- Nội dung bài viết -->
+        <div class="card-body">
+            <p class="card-text">
+                {{content}}
+            </p>
+            <p class="card-img" >
+            <img height="200px" src="{{image}} " alt="hình ảnh">    
+            </p>
+            <!-- Hiển thị danh sách tags -->
+            <p><strong>Tags:</strong></p>
+            <div>
+                {{#if tags.length}}
+                    {{#each tags}}
+                        <span class="badge bg-secondary me-1">{{this}}</span>
+                    {{/each}}
+                {{else}}
+                    <p class="text-muted">Không có tag nào.</p>
+                {{/if}}
+            </div>
+        </div>
+
+        <!-- Footer bài viết -->
+        <div class="card-footer text-end">
+            <a href="/posts" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </div>
+</div>

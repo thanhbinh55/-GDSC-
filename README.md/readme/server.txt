@@ -1,0 +1,41 @@
+1. Thiết lập môi trường làm việc
+Cài đặt Node.js và npm (nếu chưa):
+bash
+Copy code
+node -v
+npm -v
+Tạo một dự án mới:
+bash
+Copy code
+mkdir code-sharing
+cd code-sharing
+npm init -y
+Cài đặt các gói cần thiết:
+bash
+Copy code
+npm install express mongoose body-parser dotenv cors bcrypt jsonwebtoken
+npm install --save-dev nodemon
+express: Framework chính.
+mongoose: ORM để làm việc với MongoDB.
+body-parser: Parse dữ liệu từ request.
+dotenv: Quản lý biến môi trường.
+cors: Hỗ trợ CORS cho frontend kết nối.
+bcrypt: Mã hóa mật khẩu.
+jsonwebtoken: Quản lý xác thực (authentication).
+nodemon: Tự động reload server khi code thay đổi.
+
+//cấu trúc thư mục
+my-code-sharing-app/
+├── backend/                 # Tạo thư mục "backend" để gom nhóm logic backend
+│   ├── config/              # Cấu hình (như file db.js)
+│   ├── controllers/         # Xử lý logic API (PostController, UserController...)
+│   ├── middlewares/         # Middleware (authMiddleware.js, logger.js...)
+│   ├── models/              # Models (Post.js, User.js...)
+│   ├── routes/              # Routes (postRoutes.js, userRoutes.js...)
+│   ├── .env                 # Biến môi trường (MONGO_URI, JWT_SECRET, ...)
+│   ├── server.js            # Khởi tạo server Express
+├── frontend/                # (Nếu sau này bạn thêm giao diện frontend)
+│   ├── index.html           # File chính giao diện
+├── README.md                # Ghi chú dự án (mô tả, cách chạy...)
+├── package.json             # Quản lý dependencies
+├── package-lock.json        # Khóa dependencies
