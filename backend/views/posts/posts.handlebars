@@ -1,4 +1,4 @@
-<h1 class="mb-4">Danh sách bài viết</h1>
+<h1 class="mb-4">Danh sách bài viếttt</h1>
 <div class="row">
   {{#each posts}}
   <div class="col-md-4 mb-3">
@@ -6,7 +6,9 @@
       <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
-        <a href="/posts/{{this._id}}" class="btn btn-primary">Xem chi tiết</a>
+        <img src="{{this.image}} " height="200px" alt="Hình ảnh"><br><br>
+        
+        <a href="/posts/showpost/{{this.slug}}" class="btn btn-primary">Xem chi tiết</a>
       </div>
     </div>
   </div>

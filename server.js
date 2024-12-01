@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 connectDB();
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true })); // Xử lý dữ liệu form (urlencoded)
 // Cấu hình Handlebars
 app.engine(
   'handlebars',
