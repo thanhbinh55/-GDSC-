@@ -1,0 +1,42 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Title</th>
+      <th scope="col">Tag</th>
+      <th scope="col">Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each posts}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.title}}</td>
+      <td>{{this.tags}}</td>
+      <td>{{this.createdAt}}</td>
+      <td><a href="/posts/{{this._id}}/edit" class="btn btn-warning">Sửa</a></td>
+       <td><a href="/posts/{{this._id}}" data-bs-toggle="modal" data-bs-target="#askDelete" class="btn btn-warning">Xóa</a></td>
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+
+
+<!-- Ask Delete -->
+<div class="modal fade" id="askDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xác nhận xóa bài đăng</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc chắn muốn xóa bài đăng vĩnh viễn?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>

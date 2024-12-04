@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const connectDB = require('./backend/config/db');
 const route = require('./backend/routes');
+const methodOverride = require('method-override')
 const { engine } = require('express-handlebars'); // Import Handlebars adapter
 const path = require('path'); // Import để xử lý đường dẫn
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 dotenv.config();
 
@@ -13,6 +14,9 @@ const app = express();
 connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Xử lý dữ liệu form (urlencoded)
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
+
 // Cấu hình Handlebars
 app.engine(
   'handlebars',
@@ -32,10 +36,12 @@ app.get('/', (req, res) => {
   res.render('home', { title: 'Trang chủ', message: 'Chào mừng đến với Handlebars!' });
 });
 
-// Routes init
+// Routes inita
 route(app);
 
 // Start server
 app.listen(port, () => {
+  
   console.log(`Server đang chạy tại http://localhost:${port}`);
+  console.log('MongoDB URI:', process.env.MONGODB_URI);
 });

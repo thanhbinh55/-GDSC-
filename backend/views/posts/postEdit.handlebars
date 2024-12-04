@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <form action="/posts/{{_id}}?_method=PUT" method="POST">
+        <!-- Tiêu đề bài viết -->
+        <label for="title">Title:</label>
+        <input type="text" value="{{title}}" id="title" name="title"  required>
+        <br><br>
+
+        <!-- Nội dung bài viết -->
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="5" cols="50"  required>{{content}}</textarea>
+        <br><br>
+
+        <!-- Ảnh (URL) -->
+        <label for="image">Image URL:</label>
+        <input type="text" value="{{image}}" id="image" name="image" >
+        <br><br>
+
+        <!-- Tags -->
+        <label for="tags">Tags (comma separated):</label>
+        <input type="text" value="{{tags}}"id="tags" name="tags" >
+        <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Edit Post</button>
+    </form>
+</body>
+</html>
