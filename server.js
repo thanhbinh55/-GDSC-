@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors  =require('cors');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./backend/config/db');
 const route = require('./backend/routes');
 const methodOverride = require('method-override')
@@ -12,6 +14,8 @@ dotenv.config();
 
 const app = express();
 connectDB();
+app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Xử lý dữ liệu form (urlencoded)
 // override with POST having ?_method=DELETE

@@ -22,13 +22,21 @@ class PostController {
             if (!post) {
                 return res.render('posts/post', { title: 'Không tìm thấy bài viết', content: '', tags: [] });
             }
-            res.render('posts/post', {
+            // res.render('posts/post', { axios
+            //     title: post.title,
+            //     content: post.content,
+            //     image: post.image,
+            //     tags: post.tags || [],
+            //     slug: post.slug,
+            // });
+            res.send({
                 title: post.title,
                 content: post.content,
                 image: post.image,
                 tags: post.tags || [],
                 slug: post.slug,
             });
+            
         } catch (err) {
             res.status(500).json({ message: err.message });
         }
