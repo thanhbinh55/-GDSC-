@@ -5,7 +5,7 @@ class authMiddleware {
         try {
             // Lấy token từ Header Authorization
             const token = req.headers.authorization?.split(" ")[1] || req.headers.token;
- // Bearer <token>
+            // Bearer <token>
             if (!token) {
                 return res.status(401).json({ message: "Access Denied: No Token Provided" });
             }
