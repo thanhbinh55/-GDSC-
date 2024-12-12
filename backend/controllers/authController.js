@@ -39,13 +39,15 @@ class authController {
             // (1) Tìm người dùng trong database
             const user = await User.findOne({ username: req.body.username });
             if (!user) {
-                return res.status(404).json("Wrong username");
+               // return res.status(404).json("Wrong username");
+               return res.json("Wrong username");
             }
 
             // (2) Kiểm tra mật khẩu
             const validPassword = await bcrypt.compare(req.body.password, user.password);
             if (!validPassword) {
-                return res.status(404).json("Wrong password");
+                //return res.status(404).json("Wrong password");
+                return res.json("Wrong password");
             }
 
             // (3) Tạo token
